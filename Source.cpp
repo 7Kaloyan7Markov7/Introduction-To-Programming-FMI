@@ -13,10 +13,3 @@ int getDelimitersCount(int n)
     
     return count;
 }
-
-int main()
-{
-    std::cout << getDelimitersCount(6);
-
-    return 0;
-}
