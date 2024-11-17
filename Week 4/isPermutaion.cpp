@@ -2,24 +2,55 @@
 
 bool isPermutation(int a, int b)
 {
-	int sum = 0;
-	int sum2 = 0;
-	int digitCount = 0;
+	int digitCount1 = 0;
 	int digitCount2 = 0;
+	int temp1 = a;
+	int temp2 = b;
+	int currentDigit1 = 0;
+	int currentDigit2 = 0;
 
-	while (a != 0)
+	while (temp1 != 0)
 	{
-		sum += (a % 10);
-		digitCount += 1;
-		a /= 10;
+		digitCount1 += 1;
+		temp1 /= 10;
 	}
 
-	while (b != 0)
+	while (temp2 != 0)
 	{
-		sum2 += (b % 10);
 		digitCount2 += 1;
-		b /= 10;
+		temp2 /= 10;
 	}
 
-	return (sum == sum2 && digitCount == digitCount2);
+	if (digitCount1 != digitCount2)
+	{
+		return false;
+	}
+
+	for (int i = 0; i < 10; ++i)
+	{
+		temp1 = a;
+		temp2 = b;
+
+		for (int j = 0; j < digitCount1; ++j)
+		{
+			if (i == temp1 % 10)
+			{
+				currentDigit1++;
+			}
+			if (i == temp2 % 10)
+			{
+				currentDigit2++;
+			}
+			temp1 /= 10;
+			temp2 /= 10;
+		}
+		if (currentDigit1 != currentDigit2)
+		{
+			return false;
+		}
+		currentDigit1 = 0;
+		currentDigit2 = 0;
+	}
+
+	return true;
 }
