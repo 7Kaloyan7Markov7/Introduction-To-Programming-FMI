@@ -1,22 +1,16 @@
 #include <iostream>
 
-unsigned int toBinaryFromDecimal(unsigned int n)
+unsigned long long decimalToBinary(int n)
 {
-	int result = 0;
-	int mult = 1;
+	long long temp = 1;
+	long long result = 0;
+
 	while (n != 0)
 	{
-		if (n % 2 == 1)
-			result += mult;
-		mult *= 10;
+		if (n % 2) result += temp;
+		temp *= 10;
 		n /= 2;
 	}
+
 	return result;
-}
-
-
-int main()
-{
-    std::cout<< toBinaryFromDecimal(55) << endl;
-    return 0;
 }
