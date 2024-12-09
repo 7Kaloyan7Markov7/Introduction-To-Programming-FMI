@@ -1,35 +1,35 @@
 #include <iostream>
 
-void printSubset(const int arr[], int size, uint32_t subsetNum)
+void printSubSet(const int arr[], int size, int subSetNum)
 {
-	std::cout << '[' <<' ';
-
-	for (int i = 0; i < size; i++)
+	std::cout << "[";
+	for (int i = 0; i < size; ++i)
 	{
-		if (subsetNum & 1)
+		if ((subSetNum >> i) & 1)
 		{
-			std::cout << arr[i]<<' ';
+			std::cout << arr[i] << " ";
 		}
-
-		subsetNum /= 2; // or subsetNum = subsetNum >> 1;
 	}
-	std::cout << ']' << '\n';
+	if(subSetNum) std::cout << "\b";
+	std::cout << "]";
 }
 
-void printSubsets(const int arr[], int size)
+void printSubSets(const int arr[],int size)
 {
-	uint32_t subsetsCount = 1 << size;
+	uint32_t subSetCount = 1 << size;
 
-	for (int i = 0; i < subsetsCount; i++)
+	for (int i = 0; i < subSetCount; ++i)
 	{
-		printSubset(arr, size, i);
+		printSubSet(arr, size, i);
+		std::cout << " ";
 	}
 }
-
 
 int main()
 {
-	int arr[] = { 1,2,3 };
-	printSubsets(arr, 3);
+	int arr[] = { 1, 2, 3 }; 
+
+	printSubSets(arr, 3);
+
 	return 0;
 }
