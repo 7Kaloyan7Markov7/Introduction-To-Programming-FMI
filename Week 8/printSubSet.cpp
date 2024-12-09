@@ -24,12 +24,3 @@ void printSubSets(const int arr[],int size)
 		std::cout << " ";
 	}
 }
-
-int main()
-{
-	int arr[] = { 1, 2, 3 }; 
-
-	printSubSets(arr, 3);
-
-	return 0;
-}
