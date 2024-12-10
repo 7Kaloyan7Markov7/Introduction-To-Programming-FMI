@@ -1,36 +1,27 @@
 #include <iostream>
 
-bool isBitUp(uint8_t num, int indx)
+bool isEven(int n)
 {
-	uint8_t mask = 1;
-	mask = mask << indx;
-	return num & mask;
+	return (!(n & 1));
 }
 
-uint8_t bitUp(uint8_t num, int indx)
+unsigned int setBit(unsigned int n, unsigned int k)
 {
-	uint8_t mask = 1 << indx;
-
-	return num | mask;
+	return n | (1 << k);
 }
 
-uint8_t bitDown(uint8_t num, int indx)
+unsigned int clearBit(unsigned int n, unsigned int k)
 {
-	uint8_t mask = 1 << indx;
-	mask = ~mask;
-
-	return num & mask;
+	return n & ~(1 << k);
 }
 
-uint8_t toggleBit(uint8_t num, int indx)
+unsigned int toggleBit(unsigned int n, unsigned int k)
 {
-	uint8_t mask = 1 << indx;
-
-	return num ^ mask;
+	if (!(n & (1 << k))) return n | (1 << k);
+	else return n & ~(1 << k);
 }
 
-
-int main()
+bool checkBit(unsigned int n, unsigned int k)
 {
-	return 0;
+	return ((n >> k) & 1);
 }
