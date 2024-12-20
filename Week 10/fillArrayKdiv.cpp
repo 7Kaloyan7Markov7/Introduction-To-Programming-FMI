@@ -32,7 +32,7 @@ void fillRes(int* result, int* arr1, int* arr2, int size1, int size2, int k)
 		}
 	}
 
-	for (int i = 0; i < size1; ++i)
+	for (int i = 0; i < size2; ++i)
 	{
 		if (!(arr2[i] % k))
 		{
@@ -52,7 +52,7 @@ void printRes(int* res, int size)
 
 bool isValidInputSize(int size1, int size2)
 {
-	return (size1 < 0 || size2 < 0);
+	return (size1 >= 0 && size2 >= 0);
 }
 
 int main()
@@ -73,9 +73,11 @@ int main()
 
 	int k = 0;
 	std::cin >> k;
-	if (k < 0)
+	if (k <= 0)
 	{
-		std::cout << "k must be non-negative";
+		delete[] arr1;
+		delete[] arr2;
+		std::cout << "k must be positive";
 		return -1;
 	}
 
