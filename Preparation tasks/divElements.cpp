@@ -54,11 +54,6 @@ int* getArr(int* arr, int size)
 	int* newArr = new int[newSize];
 
 	fillArr(arr, newArr, size);
-	
-	for (int i = 0; i < newSize; ++i)
-	{
-		std::cout << newArr[i] << " ";
-	}
 
 	return newArr;
 }
