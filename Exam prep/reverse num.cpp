@@ -8,10 +8,10 @@ void ConvertNum(long& num)
 	while (num != 0)
 	{
 		newNum += num % 10;
-		newNum *= 10;
+		if(num >= 10) newNum *= 10;
+
 		num /= 10;
 	}
 
-	newNum /= 10;
 	num = newNum;
 }
