@@ -26,10 +26,5 @@ int* findSets(const int arr[], size_t N)
 		res[resIndex++] = 0;
 	}
 
-	for (int i = 0; i < resIndex; ++i)
-	{
-		std::cout << res[i];
-	}
-
 	return res;
 }
